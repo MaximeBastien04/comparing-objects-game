@@ -1,7 +1,7 @@
 # comparing-objects-game
 ## Project Overview
 A short childrens game where players have to compare objects to find the right answer.
-The game is made for internship at Caramel Publishing based on the childrens book "Le Petit Poucet ay pays des opposés".
+The game is made for internship at Caramel Publishing based on the childrens book "Le Petit Poucet au pays des opposés".
 
 ## How to Run
 1. Open the project in Unity (version 2022.1 or later).
@@ -27,11 +27,12 @@ For any further contribution, please check the `CONTRIBUTING.md`.
   - `Audio/`: Contains music and sound effects.
   - `Scripts/`: Game logic scripts.
   - `Scenes/`: Contains all the scenes.
+  - `Animations/`: Has all animations in the game.
 - `Packages/`: Contains all Unity packages used in project.
 
 source: [Unity-Folder-Structure](https://unity.com/how-to/organizing-your-project)
 
 ## License
-This project is developed by **Maxime Bastien**.
+This project is developed by **Maxime Bastien** & **Leonardo Fountas**.
 
 This project is licensed under the MIT License. See the full license text in the LICENSE file.
