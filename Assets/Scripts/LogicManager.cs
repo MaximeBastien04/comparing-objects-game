@@ -14,10 +14,12 @@ public class LogicManager : MonoBehaviour
     [SerializeField] private GameObject correctImg;
     public Button nextBtn;
     public AudioManager audioManager;
+    private Animator bigItemAnimator;
 
     void Start()
     {
         //***************************************Buttons Images  Randomize********************************************************************************************//
+        bigItemAnimator = GameObject.Find("GamePic").GetComponentInChildren<Animator>();
         buttonsArray = gridObject.GetComponentsInChildren<Button>();
 
         // Convert the sprite array into a List to track available sprites
@@ -27,6 +29,7 @@ public class LogicManager : MonoBehaviour
         foreach (Button btn in buttonsArray)
         {
             Image childImage = btn.transform.Find("Image").GetComponent<Image>(); // Get child Image component
+            childImage.preserveAspect = false;
 
             int randomIndex = Random.Range(0, availableSprites.Count); // Pick a random available sprite
             childImage.sprite = availableSprites[randomIndex];  // Assign sprite
@@ -38,14 +41,14 @@ public class LogicManager : MonoBehaviour
         }
 
     }
-    //***************************************Game Logic **********************************************************************************************************//
+    //***************************************Game Logic**********************************************************************************************************//
     private void checkResponse(Button clickedBtn)
     {
         string childImage = clickedBtn.transform.Find("Image").GetComponent<Image>().sprite.name;
-        Debug.Log("Source Image name:" + childImage);
         if (childImage == correctImg.name)
         {
             correctImg.gameObject.SetActive(true);
+            bigItemAnimator.SetTrigger("winAnimation");
             audioManager.WinSound();
             nextBtn.gameObject.SetActive(true);
             foreach (Button btn in buttonsArray)
